@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './navigationHome.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -102,7 +103,10 @@ class SignInScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   child: ElevatedButton(
                     onPressed: () {
-                      // Sign-up logic will go here
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                      );
                     },
                     child: Text(
                       'دخول',

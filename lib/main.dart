@@ -12,7 +12,7 @@ class ChApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(), // Use the SignInUpScreen widget here
+      home: SignInUpScreen(), // Use the SignInUpScreen widget here
     );
   }
 }

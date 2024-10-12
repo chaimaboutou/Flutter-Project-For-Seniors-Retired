@@ -5,7 +5,7 @@ class AddScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        'Home Screen',
+        'add Screen',
         style: TextStyle(fontSize: 24),
       ),
     );
