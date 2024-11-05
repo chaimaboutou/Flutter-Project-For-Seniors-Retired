@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_for_retired_seniors/components/login_textfield.dart';
-import 'package:flutter_project_for_retired_seniors/pages/login_page.dart';
+import 'package:flutter_project_for_retired_seniors/pages/home_page.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
@@ -9,6 +9,17 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const HomePage()));
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios_new,
+                color: Colors.blue,
+              )),
+        ),
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -17,7 +28,6 @@ class SignUpPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const SizedBox(height: 60.0),
                 const Text(
                   'تسجيل',
                   style: TextStyle(
@@ -94,10 +104,7 @@ class SignUpPage extends StatelessWidget {
                     const Text('هل لديك حساب مسبق ؟'),
                     TextButton(
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginPage()));
+                          Navigator.pop(context);
                         },
                         child: const Text(
                           'دخول',

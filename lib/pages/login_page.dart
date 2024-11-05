@@ -9,6 +9,16 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios_new,
+                color: Colors.blue,
+              )),
+        ),
         body: Container(
           alignment: Alignment.center,
           margin: const EdgeInsets.all(24),
