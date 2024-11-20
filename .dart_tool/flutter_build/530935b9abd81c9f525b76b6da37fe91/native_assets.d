@@ -1,0 +1,1 @@
+ D:\\flutter_project_for_retired_seniors\\.dart_tool\\flutter_build\\530935b9abd81c9f525b76b6da37fe91\\native_assets.yaml: 

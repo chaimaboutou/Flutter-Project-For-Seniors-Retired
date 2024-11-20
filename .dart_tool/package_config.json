@@ -122,6 +122,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "salomon_bottom_bar",
+      "rootUri": "file:///C:/Users/HAMZA/AppData/Local/Pub/Cache/hosted/pub.dev/salomon_bottom_bar-3.3.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///C:/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -182,7 +188,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-11-06T17:29:52.303890Z",
+  "generated": "2024-11-18T13:34:46.439225Z",
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///C:/flutter",

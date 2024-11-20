@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_for_retired_seniors/components/login_textfield.dart';
+import 'package:flutter_project_for_retired_seniors/pages/home_account.dart';
 import 'package:flutter_project_for_retired_seniors/pages/signup_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -43,7 +44,12 @@ class LoginPage extends StatelessWidget {
                       hintText: 'كلمة المرور', icons: Icons.password),
                   const SizedBox(height: 10),
                   ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomeAccount()));
+                      },
                       style: ElevatedButton.styleFrom(
                           shape: const StadiumBorder(),
                           padding: const EdgeInsets.symmetric(vertical: 16),
