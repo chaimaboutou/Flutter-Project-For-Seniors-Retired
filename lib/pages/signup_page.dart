@@ -41,7 +41,7 @@ class SignUpPage extends StatelessWidget {
                         hintText: 'إسم المستخدم', icons: Icons.person),
                     const SizedBox(height: 20),
                     const LoginField(
-                        hintText: 'البريد الالكتروني', icons: Icons.email),
+                        hintText: 'رقم الهاتف ', icons: Icons.call),
                     const SizedBox(height: 20),
                     const LoginField(
                         hintText: 'كلمة المرور', icons: Icons.password),

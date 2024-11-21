@@ -7,12 +7,12 @@ class IconButtonWithLabel extends StatelessWidget {
   final VoidCallback onPressed; // Action when the button is clicked
 
   const IconButtonWithLabel({
-    Key? key,
+    super.key,
     required this.icon,
     required this.label,
     required this.iconColor, // New parameter for icon color
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +20,11 @@ class IconButtonWithLabel extends StatelessWidget {
       onTap: onPressed, // Handle button tap
       child: Container(
         decoration: BoxDecoration(
-          color: Color.fromRGBO(
+          color: const Color.fromRGBO(
               217, 217, 217, 0.47), // Background color of the button
           borderRadius: BorderRadius.circular(20.0), // Change the radius
         ),
-        padding: EdgeInsets.all(10.0), // Add padding for size adjustment
+        padding: const EdgeInsets.all(10.0), // Add padding for size adjustment
         child: Column(
           mainAxisSize: MainAxisSize.min, // Adjust size to fit content
           children: [
@@ -35,7 +35,7 @@ class IconButtonWithLabel extends StatelessWidget {
             ),
             Text(
               label,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14.0, // Font size for the label
                 fontWeight: FontWeight.bold, // Style of the label
                 color: Colors.black, // Text color

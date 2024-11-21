@@ -6,7 +6,7 @@ import 'myevents.dart';
 import 'setting.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -15,12 +15,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  List<Widget> _screens = [
-    HomeScreen(),
-    SearchScreen(),
-    AddScreen(),
-    EventsScreen(),
-    SettingsScreen(),
+  final List<Widget> _screens = [
+    const HomeScreen(),
+    const SearchScreen(),
+    const AddScreen(),
+    const EventsScreen(),
+    const SettingsScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'الرئيسية',
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: Color.fromRGBO(42, 99, 168, 1),
+        selectedItemColor: const Color.fromRGBO(42, 99, 168, 1),
         unselectedItemColor: Colors.black,
         showUnselectedLabels: true,
         showSelectedLabels: true,

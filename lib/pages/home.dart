@@ -1,38 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_for_retired_seniors/components/button_activity.dart';
-import 'package:flutter_project_for_retired_seniors/components/small_event_card.dart'; // Import the SmallEventCard
+import 'package:flutter_project_for_retired_seniors/components/small_event_card.dart';
+import 'package:flutter_project_for_retired_seniors/pages/pages_for_activities_buttons.dart/sport.dart';
+import 'package:flutter_project_for_retired_seniors/components/bottom_navigation_bar.dart';
+import 'package:flutter_project_for_retired_seniors/pages/pages_for_activities_buttons.dart/drawing.dart';
+import 'package:flutter_project_for_retired_seniors/pages/pages_for_activities_buttons.dart/trip.dart';
+import 'package:flutter_project_for_retired_seniors/pages/pages_for_activities_buttons.dart/all.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(130), // Set the desired height
+        preferredSize: const Size.fromHeight(130),
         child: AppBar(
           automaticallyImplyLeading: false,
           flexibleSpace: Column(
-            crossAxisAlignment:
-                CrossAxisAlignment.start, // Align items to the start (left)
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Row for Profile Icon and User Name
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 30, left: 20, right: 20.0, bottom: 8.0),
+              const Padding(
+                padding: EdgeInsets.only(
+                    top: 40, left: 20, right: 20.0, bottom: 8.0),
                 child: Row(
                   children: [
-                    // Profile Icon
-                    CircleAvatar(
-                      backgroundColor: Colors.grey,
-                      child: Icon(Icons.person, color: Colors.white),
-                    ),
-                    SizedBox(width: 8.0), // Control space between icon and text
-                    // User Name
+                    SizedBox(width: 8.0),
                     Text(
-                      'اسم المستخدم', // Replace with dynamic name if needed
+                      ' الرئيسية',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
@@ -40,7 +50,6 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              // Search Field
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: TextField(
@@ -51,82 +60,94 @@ class HomeScreen extends StatelessWidget {
                       borderSide: BorderSide.none,
                     ),
                     filled: true,
-                    fillColor:
-                        Colors.white, // Background color of the text field
-                    prefixIcon: Icon(Icons.search),
+                    fillColor: Colors.white,
+                    prefixIcon: const Icon(Icons.search),
                   ),
                 ),
               ),
             ],
           ),
-          backgroundColor: Color.fromRGBO(234, 235, 248, 1),
+          backgroundColor: const Color.fromRGBO(234, 235, 248, 1),
         ),
       ),
       body: SingleChildScrollView(
-        // Wrap the Column in SingleChildScrollView
         child: Column(
-          crossAxisAlignment:
-              CrossAxisAlignment.start, // Align content to the start
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0), // Padding around the row
+              padding: const EdgeInsets.all(16.0),
               child: Row(
-                mainAxisAlignment:
-                    MainAxisAlignment.spaceBetween, // Space between buttons
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        print("الكل button pressed");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AllScreen()),
+                        );
                       },
-                      child: Text(
+                      child: const Text(
                         'الكل',
                         style: TextStyle(color: Colors.black),
                       ),
                     ),
                   ),
-                  SizedBox(width: 16.0), // Spacing between buttons
+                  const SizedBox(width: 16.0),
                   Expanded(
                     child: IconButtonWithLabel(
                       icon: Icons.hiking,
                       label: 'الرحلات',
                       iconColor: Colors.deepPurple,
                       onPressed: () {
-                        print("الرحلات button pressed");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const TripScreen()),
+                        );
                       },
                     ),
                   ),
-                  SizedBox(width: 16.0), // Spacing between buttons
+                  const SizedBox(width: 16.0),
                   Expanded(
                     child: IconButtonWithLabel(
                       icon: Icons.sports_baseball,
                       label: 'الرياضة',
                       iconColor: Colors.green.shade400,
                       onPressed: () {
-                        print("الرياضة button pressed");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SportScreen()),
+                        );
                       },
                     ),
                   ),
-                  SizedBox(width: 16.0), // Spacing between buttons
+                  const SizedBox(width: 16.0),
                   Expanded(
                     child: IconButtonWithLabel(
                       icon: Icons.brush,
                       label: 'الرسم',
                       iconColor: Colors.red.shade400,
                       onPressed: () {
-                        print("الرسم button pressed");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DrawingScreen()),
+                        );
                       },
                     ),
                   ),
                 ],
               ),
             ),
-            Divider(color: Colors.grey, thickness: 1.0), // Line below title
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+            const Divider(color: Colors.grey, thickness: 1.0),
+            const Padding(
+              padding: EdgeInsets.all(16.0),
               child: Text(
                 'الأحداث القريبة',
-                textAlign: TextAlign.right, // Align text to the right
+                textAlign: TextAlign.right,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -134,31 +155,29 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              height: 200, // Set a fixed height for the card list
+            const SizedBox(
+              height: 200,
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   children: [
                     SmallEventCard(
-                      eventImage: const AssetImage('images/music.jpg'),
+                      eventImage: AssetImage('images/music.jpg'),
                       title: 'حفل موسيقي',
                       date: '12 أكتوبر 2024',
                       location: 'الرباط',
                     ),
-                    SizedBox(width: 2.0), // Space between cards
+                    SizedBox(width: 2.0),
                     SmallEventCard(
-                      eventImage: const AssetImage(
-                          'images/chess.jpg'), // Use the asset path
+                      eventImage: AssetImage('images/chess.jpg'),
                       title: 'لعبة الشطرنج',
                       date: '13 أكتوبر 2024',
                       location: 'الرباط',
                     ),
-                    SizedBox(width: 2.0), // Space between cards
+                    SizedBox(width: 2.0),
                     SmallEventCard(
-                      eventImage: const AssetImage(
-                          'images/football.jpg'), // Use the asset path
+                      eventImage: AssetImage('images/football.jpg'),
                       title: 'مباراة كرة قدم',
                       date: '13 أكتوبر 2024',
                       location: 'الرباط',
@@ -167,12 +186,12 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Divider(color: Colors.grey, thickness: 1.0), // Line below title
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+            const Divider(color: Colors.grey, thickness: 1.0),
+            const Padding(
+              padding: EdgeInsets.all(16.0),
               child: Text(
                 'الأحداث القادمة',
-                textAlign: TextAlign.right, // Align text to the right
+                textAlign: TextAlign.right,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -180,31 +199,29 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              height: 200, // Set a fixed height for the card list
+            const SizedBox(
+              height: 200,
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   children: [
                     SmallEventCard(
-                      eventImage: const AssetImage('images/garddening.jpeg'),
+                      eventImage: AssetImage('images/garddening.jpeg'),
                       title: 'البستنة',
                       date: '12 أكتوبر 2024',
                       location: 'الرباط',
                     ),
-                    SizedBox(width: 2.0), // Space between cards
+                    SizedBox(width: 2.0),
                     SmallEventCard(
-                      eventImage: const AssetImage(
-                          'images/photoraphy.webp'), // Use the asset path
+                      eventImage: AssetImage('images/photoraphy.webp'),
                       title: 'التصوير الفوتوغرافي',
                       date: '13 أكتوبر 2024',
                       location: 'الرباط',
                     ),
-                    SizedBox(width: 2.0), // Space between cards
+                    SizedBox(width: 2.0),
                     SmallEventCard(
-                      eventImage: const AssetImage(
-                          'images/cycling.jpeg'), // Use the asset path
+                      eventImage: AssetImage('images/cycling.jpeg'),
                       title: 'ركوب الدراجات',
                       date: '13 أكتوبر 2024',
                       location: 'الرباط',
@@ -215,6 +232,10 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBarComponent(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
       ),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_for_retired_seniors/components/login_textfield.dart';
 import 'package:flutter_project_for_retired_seniors/pages/signup_page.dart';
-import 'package:flutter_project_for_retired_seniors/pages/navigationHome.dart';
+import 'package:flutter_project_for_retired_seniors/pages/home.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -38,7 +38,7 @@ class LoginPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const HomePage()));
+                                builder: (context) => const HomeScreen()));
                       },
                       style: ElevatedButton.styleFrom(
                           shape: const StadiumBorder(),

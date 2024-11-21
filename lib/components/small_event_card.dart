@@ -7,12 +7,12 @@ class SmallEventCard extends StatelessWidget {
   final String location;
 
   const SmallEventCard({
-    Key? key,
+    super.key,
     required this.eventImage,
     required this.title,
     required this.date,
     required this.location,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -41,21 +41,22 @@ class SmallEventCard extends StatelessWidget {
                 Text(
                   title,
                   textAlign: TextAlign.right, // Align text to the right
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16, // Smaller font size
                   ),
                 ),
-                SizedBox(height: 4.0), // Add some space between text lines
+                const SizedBox(
+                    height: 4.0), // Add some space between text lines
                 Text(
                   date,
                   textAlign: TextAlign.right, // Align text to the right
-                  style: TextStyle(fontSize: 13), // Smaller font size
+                  style: const TextStyle(fontSize: 13), // Smaller font size
                 ),
                 Text(
                   location,
                   textAlign: TextAlign.right, // Align text to the right
-                  style: TextStyle(fontSize: 13), // Smaller font size
+                  style: const TextStyle(fontSize: 13), // Smaller font size
                 ),
               ],
             ),
